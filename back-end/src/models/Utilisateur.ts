@@ -13,7 +13,6 @@ export interface IUtilisateur {
 
 
 export const utilisateurSchema = new mongoose.Schema({
-    id: Number,
     nom: String,
     prenom: String,
     email: String,

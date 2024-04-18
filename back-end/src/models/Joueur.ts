@@ -12,7 +12,6 @@ export interface IJoueur {
 
 
 export const joueurSchema = new mongoose.Schema({
-    id: Number,
     nom: String,
     prenom: String,
     prix: Number,

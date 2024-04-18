@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import Utilisateur, { IUtilisateur } from "../models/Utilisateur";
+import bcrypt from 'bcrypt';
 
 const router = Router();
 
@@ -30,6 +31,8 @@ router.post('/inscription', async (req: Request, res: Response) => {
         return res.status(400).json({ message: "Cet utilisateur existe déjà." });
       } else {
         const nouvelUtilisateur = new Utilisateur(utilisateur);
+
+        nouvelUtilisateur.mot_de_passe = bcrypt.hashSync(nouvelUtilisateur.mot_de_passe, 10);
 
         await nouvelUtilisateur.save();
 

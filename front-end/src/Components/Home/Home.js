@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function Auth() {
-
+export default function Home() {
     return (
         <div>
-            <h1>Bienvenue</h1>
+            <h1>test</h1>
         </div>
     );
 }

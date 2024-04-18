@@ -3,10 +3,6 @@ import Joueur, {IJoueur} from '../models/Joueur'
 
 const router = Router();
 
-
-let joueurs: IJoueur[] = []
-
-
 router.post('/', async (req: Request, res: Response) => {
     const joueur = new Joueur(req.body);
     await joueur.save();
@@ -37,8 +33,8 @@ router.put('/:id', async (req: Request, res: Response) => {
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
-    const film = await Film.findByIdAndDelete(req.params.id);
-    if (!film) {
+    const joueur = await Joueur.findByIdAndDelete(req.params.id);
+    if (!joueur) {
     res.status(404).send('Joueur non trouvé');
     } else {
     res.status(204).send();

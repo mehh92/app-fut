@@ -24,7 +24,7 @@ export const utilisateurSchema = new mongoose.Schema({
 })
 
 
-const Utilisateur = mongoose.model('Utilisateur', utilisateurSchema)
+const Utilisateur = mongoose.model<IUtilisateur>('Utilisateur', utilisateurSchema)
 
 
 

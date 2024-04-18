@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-export interface IUtilisateur {
+export interface IJoueur {
     id: number,
     nom: string,
     prenom: string,
@@ -22,7 +22,7 @@ export const joueurSchema = new mongoose.Schema({
 })
 
 
-const Joueur = mongoose.model('Joueur', joueurSchema)
+const Joueur = mongoose.model<IJoueur>('Joueur', joueurSchema)
 
 
 

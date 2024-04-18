@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 
-
 export interface IUtilisateur {
     id: number,
     nom: string,
@@ -10,4 +9,23 @@ export interface IUtilisateur {
     mot_de_passe : string,
     role: boolean,
     budget: number
-} 
+}
+
+
+export const utilisateurSchema = new mongoose.Schema({
+    id: Number,
+    nom: String,
+    prenom: String,
+    email: String,
+    nom_du_club : String,
+    mot_de_passe : String,
+    role: Boolean,
+    budget: Number
+})
+
+
+const Utilisateur = mongoose.model('Utilisateur', utilisateurSchema)
+
+
+
+export default Utilisateur

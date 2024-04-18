@@ -1,0 +1,81 @@
+### CRUD Utilisateur ###
+
+GET http://localhost:3001/api/utilisateurs
+
+###
+
+GET http://localhost:3001/api/utilisateurs/66210f27fe21a81bee1d20ac
+
+###
+
+POST http://localhost:3001/api/utilisateurs/inscription
+content-type: application/json
+
+{
+    "nom": "Mehdi",
+    "prenom": "prenomTest",
+    "email": "emailTu@gmail.com",
+    "nom_du_club": "nomClubTest",
+    "mot_de_passe": "motDePasseTest",
+    "role": false,
+    "budget": 1000
+}
+
+###
+
+DELETE http://localhost:3001/api/utilisateurs/66210f27fe21a81bee1d20ac
+
+
+###
+PUT http://localhost:3001/api/utilisateurs/66210f14fe21a81bee1d20a9
+content-type: application/json
+
+{
+    "nom": "nomTestModifie",
+    "prenom": "prenomTest",
+    "email": "emailTest@gmail.com",
+    "nom_du_club": "nomClubTest",
+    "mot_de_passe": "motDePasseTest",
+    "role": false,
+    "budget": 1000
+}
+
+### CRUD Joueur ###
+
+GET http://localhost:3001/api/joueurs
+
+###
+
+GET http://localhost:3001/api/joueurs/66210f74fe21a81bee1d20bb
+
+###
+
+POST http://localhost:3001/api/joueurs
+content-type: application/json
+
+{
+    "nom": "JP",
+    "prenom": "prenomTest",
+    "prix": 1000,
+    "poste": "posteTest",
+    "note": 100,
+    "nom_du_club": "nomClubTest"
+}
+
+###
+
+DELETE http://localhost:3001/api/joueurs/66210f74fe21a81bee1d20bb
+
+
+###
+PUT http://localhost:3001/api/joueurs/66210f63fe21a81bee1d20b7
+content-type: application/json
+
+{
+    "nom": "nomTestModifie",
+    "prenom": "prenomTest",
+    "prix": 1000,
+    "poste": "posteTest",
+    "note": 100,
+    "nom_du_club": "nomClubTest"
+}

@@ -8,13 +8,13 @@ GET http://localhost:3001/api/utilisateurs/66210f27fe21a81bee1d20ac
 
 ###
 
-POST http://localhost:3001/api/utilisateurs
+POST http://localhost:3001/api/utilisateurs/inscription
 content-type: application/json
 
 {
     "nom": "Mehdi",
     "prenom": "prenomTest",
-    "email": "emailTest@gmail.com",
+    "email": "emailTu@gmail.com",
     "nom_du_club": "nomClubTest",
     "mot_de_passe": "motDePasseTest",
     "role": false,
@@ -46,7 +46,7 @@ GET http://localhost:3001/api/joueurs
 
 ###
 
-GET http://localhost:3001/api/joueurs/6620050727df937d6a75ba57
+GET http://localhost:3001/api/joueurs/66210f74fe21a81bee1d20bb
 
 ###
 
@@ -54,7 +54,7 @@ POST http://localhost:3001/api/joueurs
 content-type: application/json
 
 {
-    "nom": "nomTest",
+    "nom": "JP",
     "prenom": "prenomTest",
     "prix": 1000,
     "poste": "posteTest",
@@ -64,11 +64,11 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3001/api/joueurs/6620050227df937d6a75ba55
+DELETE http://localhost:3001/api/joueurs/66210f74fe21a81bee1d20bb
 
 
 ###
-PUT http://localhost:3001/api/joueurs/6620050227df937d6a75ba55
+PUT http://localhost:3001/api/joueurs/66210f63fe21a81bee1d20b7
 content-type: application/json
 
 {

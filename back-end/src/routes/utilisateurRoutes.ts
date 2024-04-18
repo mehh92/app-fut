@@ -22,14 +22,33 @@ router.get('/', async (req: Request, res: Response) => {
     }
   });
   
-  router.post('/', async (req: Request, res: Response) => {
+  // router.post('/', async (req: Request, res: Response) => {
+  //   try {
+  //     const utilisateur: IUtilisateur = req.body;
+  //     const nouvelUtilisateur = new Utilisateur(utilisateur);
+  //     await nouvelUtilisateur.save();
+  //     res.status(201).json(nouvelUtilisateur);
+  //   } catch (error: any) {
+  //     res.status(500).json({ message: error.message });
+  //   }
+  // });
+
+  router.post('/inscription', async (req: Request, res: Response) => {
     try {
-      const utilisateur: IUtilisateur = req.body;
-      const nouvelUtilisateur = new Utilisateur(utilisateur);
-      await nouvelUtilisateur.save();
-      res.status(201).json(nouvelUtilisateur);
+        const utilisateur: IUtilisateur = req.body;
+
+        const utilisateurExistant = await Utilisateur.findOne({ email: utilisateur.email });
+        if (utilisateurExistant) {
+          return res.status(400).json({ message: "Cet utilisateur existe déjà." });
+        } else {
+          const nouvelUtilisateur = new Utilisateur(utilisateur);
+
+          await nouvelUtilisateur.save();
+
+          res.status(201).json(nouvelUtilisateur);
+        }
     } catch (error: any) {
-      res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
   });
   

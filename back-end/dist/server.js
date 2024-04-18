@@ -24,7 +24,7 @@ app.use('/api/utilisateurs', utilisateurRoutes_1.default);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-const uri = "mongodb+srv://mern:mern@cluster0.el9u4wr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://exemple:1234@cluster0.el9u4wr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

@@ -16,7 +16,7 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
-const uri = "mongodb+srv://mern:mern@cluster0.el9u4wr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://exemple:1234@cluster0.el9u4wr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 async function run() {
     try {

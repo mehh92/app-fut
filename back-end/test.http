@@ -1,0 +1,90 @@
+### CRUD Utilisateur ###
+
+GET http://localhost:3001/api/utilisateurs
+
+###
+
+GET http://localhost:3001/api/utilisateurs/6620050727df937d6a75ba57
+
+###
+
+POST http://localhost:3001/api/utilisateurs
+content-type: application/json
+
+{
+    "nom": "nomTest",
+    "prenom": "prenomTest",
+    "email": "emailTest@gmail.com",
+    "nom_du_club": "nomClubTest",
+    "mot_de_passe": "motDePasseTest",
+    "role": false,
+    "budget": 1000
+}
+
+###
+
+DELETE http://localhost:3001/api/utilisateurs/6620050227df937d6a75ba55
+
+
+###
+PUT http://localhost:3001/api/utilisateurs/6620050227df937d6a75ba55
+content-type: application/json
+
+{
+    "nom": "nomTestModifie",
+    "prenom": "prenomTest",
+    "email": "emailTest@gmail.com",
+    "nom_du_club": "nomClubTest",
+    "mot_de_passe": "motDePasseTest",
+    "role": false,
+    "budget": 1000
+}
+
+### CRUD Joueur ###
+
+export const joueurSchema = new mongoose.Schema({
+    nom: String,
+    prenom: String,
+    prix: Number,
+    poste: String,
+    note: Number,
+    nom_du_club : String
+})
+
+GET http://localhost:3001/api/joueurs
+
+###
+
+GET http://localhost:3001/api/joueurs/6620050727df937d6a75ba57
+
+###
+
+POST http://localhost:3001/api/joueurs
+content-type: application/json
+
+{
+    "nom": "nomTest",
+    "prenom": "prenomTest",
+    "prix": 1000,
+    "poste": "posteTest",
+    "note": 100,
+    "nom_du_club": "nomClubTest"
+}
+
+###
+
+DELETE http://localhost:3001/api/joueurs/6620050227df937d6a75ba55
+
+
+###
+PUT http://localhost:3001/api/joueurs/6620050227df937d6a75ba55
+content-type: application/json
+
+{
+    "nom": "nomTestModifie",
+    "prenom": "prenomTest",
+    "prix": 1000,
+    "poste": "posteTest",
+    "note": 100,
+    "nom_du_club": "nomClubTest"
+}

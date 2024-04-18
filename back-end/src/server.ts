@@ -1,6 +1,6 @@
 import express, { Express, Request, Response} from 'express'
 import joueurRoutes from './routes/joueurRoutes'
-// import utilisateurRoutes from './routes/utilisateurRoutes'
+import utilisateurRoutes from './routes/utilisateurRoutes'
 
 import mongoose from 'mongoose';
 
@@ -10,7 +10,7 @@ const PORT = 3001
 
 app.use(express.json())
 app.use('/api/joueurs', joueurRoutes)
-// app.use('/api/utilisateurs', utilisateurRoutes)
+app.use('/api/utilisateurs', utilisateurRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

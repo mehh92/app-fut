@@ -14,13 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const joueurRoutes_1 = __importDefault(require("./routes/joueurRoutes"));
-// import utilisateurRoutes from './routes/utilisateurRoutes'
+const utilisateurRoutes_1 = __importDefault(require("./routes/utilisateurRoutes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
 const PORT = 3001;
 app.use(express_1.default.json());
 app.use('/api/joueurs', joueurRoutes_1.default);
-// app.use('/api/utilisateurs', utilisateurRoutes)
+app.use('/api/utilisateurs', utilisateurRoutes_1.default);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

@@ -14,7 +14,7 @@ content-type: application/json
 {
   "nom": "Mehdi",
   "prenom": "prenomTest",
-  "email": "emailTu@gmail.com",
+  "email": "emailT@gmail.com",
   "nom_du_club": "nomClubTest",
   "mot_de_passe": "motDePasseTest",
   "role": false,

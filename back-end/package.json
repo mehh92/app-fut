@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mehh92/app-fut#readme",
   "dependencies": {
     "@types/express": "^4.17.21",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "mongoose": "^8.3.2",
     "nodemon": "^3.1.0",

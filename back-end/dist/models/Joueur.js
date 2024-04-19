@@ -11,7 +11,7 @@ exports.joueurSchema = new mongoose_1.default.Schema({
     prix: Number,
     poste: String,
     note: Number,
-    club: String
+    nom_du_club: String
 });
 const Joueur = mongoose_1.default.model('Joueur', exports.joueurSchema);
 exports.default = Joueur;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Register.css';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function RegistrationForm() {
 
@@ -11,22 +12,37 @@ export default function RegistrationForm() {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [budget, setBudget] = useState(0);
+    const role = false;
 
     const handleRegistration = async () => {
         try {
-            const response = await fetch.post('/api/utilisateurs/inscription', {
-                email,
+            if (!email || !nom || !prenom || !nomclub || !password || !passwordConfirm) {
+                console.error('Veuillez remplir tous les champs');
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                console.error('Les mots de passe ne correspondent pas');
+                return;
+            }
+
+            const userData = {
                 nom,
                 prenom,
+                email,
                 nomclub,
                 password,
+                role,
                 budget
-            });
-            console.log(response.data.message); // Affiche le message de succès de l'API
+            };
+
+            const response = await axios.post('http://localhost:3001/api/utilisateurs/inscription', userData);
+            console.log(response.data.message);
         } catch (error) {
             console.error('Erreur lors de l\'enregistrement :', error);
         }
     };
+
 
     return (
         <div className="container">
@@ -47,7 +63,7 @@ export default function RegistrationForm() {
                 <label className="form-label">Confirmation de mot de passe</label>
                 <input className='form-control' type="password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
 
-                <button type="submit" className="btn btn-primary mt-3" onClick={handleRegistration}>Connexion</button>
+                <button type="submit" className="btn btn-primary mt-3" onClick={handleRegistration}>Inscription</button>
 
                 <p className="mt-3">
                     Déjà inscrit ? <Link to="/" className="btn btn-link">Connectez-vous ici</Link>

@@ -35,12 +35,28 @@ router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(500).json({ message: error.message });
     }
 }));
-router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+// router.post('/', async (req: Request, res: Response) => {
+//   try {
+//     const utilisateur: IUtilisateur = req.body;
+//     const nouvelUtilisateur = new Utilisateur(utilisateur);
+//     await nouvelUtilisateur.save();
+//     res.status(201).json(nouvelUtilisateur);
+//   } catch (error: any) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+router.post('/inscription', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const utilisateur = req.body;
-        const nouvelUtilisateur = new Utilisateur_1.default(utilisateur);
-        yield nouvelUtilisateur.save();
-        res.status(201).json(nouvelUtilisateur);
+        const utilisateurExistant = yield Utilisateur_1.default.findOne({ email: utilisateur.email });
+        if (utilisateurExistant) {
+            return res.status(400).json({ message: "Cet utilisateur existe déjà." });
+        }
+        else {
+            const nouvelUtilisateur = new Utilisateur_1.default(utilisateur);
+            yield nouvelUtilisateur.save();
+            res.status(201).json(nouvelUtilisateur);
+        }
     }
     catch (error) {
         res.status(500).json({ message: error.message });

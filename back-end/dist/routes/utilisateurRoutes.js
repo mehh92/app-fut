@@ -45,7 +45,9 @@ router.post('/inscription', (req, res) => __awaiter(void 0, void 0, void 0, func
         }
         else {
             const nouvelUtilisateur = new Utilisateur_1.default(utilisateur);
-            nouvelUtilisateur.mot_de_passe = bcrypt_1.default.hashSync(nouvelUtilisateur.mot_de_passe, 10);
+            const salt = yield bcrypt_1.default.genSalt(10);
+            const hash = yield bcrypt_1.default.hash(utilisateur.mot_de_passe, salt);
+            nouvelUtilisateur.mot_de_passe = hash;
             yield nouvelUtilisateur.save();
             res.status(201).json(nouvelUtilisateur);
         }

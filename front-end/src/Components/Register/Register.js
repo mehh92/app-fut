@@ -27,13 +27,13 @@ export default function RegistrationForm() {
             }
 
             const userData = {
-                nom,
-                prenom,
-                email,
-                nomclub,
-                password,
-                role,
-                budget
+                nom: nom,
+                prenom: prenom,
+                email: email,
+                nom_du_club: nomclub,
+                mot_de_passe: password,
+                role: role,
+                budget: budget
             };
 
             const response = await axios.post('http://localhost:3001/api/utilisateurs/inscription', userData);

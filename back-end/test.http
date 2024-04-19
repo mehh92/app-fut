@@ -13,8 +13,8 @@ content-type: application/json
 
 {
   "nom": "Mehdi",
-  "prenom": "prenomTest",
-  "email": "emailTu@gmail.com",
+  "prenom": "tt",
+  "email": "emailtestttTu@gmail.com",
   "nom_du_club": "nomClubTest",
   "mot_de_passe": "motDePasseTest",
   "role": false,
@@ -27,7 +27,7 @@ content-type: application/json
 
 {
   "email": "emailTu@gmail.com",
-  "mot_de_passe": "motDePasseTest"
+  "mot_de_passe": "$2b$10$NpGu7AhO5NUyNv5.f8SLNOiw1MAqIcbyCXGBaSrs3Jrrrf4TDvJka"
 }
 
 

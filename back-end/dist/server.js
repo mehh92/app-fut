@@ -30,13 +30,11 @@ const uri = "mongodb+srv://root:root@cluster0.yk5pevi.mongodb.net/?retryWrites=t
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
             yield mongoose_1.default.connect(uri);
             yield mongoose_1.default.connection.db.admin().command({ ping: 1 });
             console.log("Pinged your deployment. You successfully connected to MongoDB!");
         }
         catch (error) {
-            // Ensures that the client will close when you finish/error
             console.log(error);
         }
     });

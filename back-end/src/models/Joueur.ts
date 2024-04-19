@@ -7,7 +7,7 @@ export interface IJoueur {
     prix: number,
     poste: string,
     note: number,
-    nom_du_club : string
+    nom_du_club: string
 }
 
 
@@ -17,7 +17,7 @@ export const joueurSchema = new mongoose.Schema({
     prix: Number,
     poste: String,
     note: Number,
-    nom_du_club : String
+    nom_du_club: String
 })
 
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import './Register.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function RegistrationForm() {
 
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
@@ -38,6 +39,7 @@ export default function RegistrationForm() {
 
             const response = await axios.post('http://localhost:3001/api/utilisateurs/inscription', userData);
             console.log(response.data.message);
+            navigate('/');
         } catch (error) {
             console.error('Erreur lors de l\'enregistrement :', error);
         }

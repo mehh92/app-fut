@@ -1,15 +1,32 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Auth() {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleLogin = () => {
-        console.log('Email:', email);
-        console.log('Password:', password);
+    const handleLogin = async () => {
+        try {
+            if (!email || !password) {
+                console.log('Veuillez remplir tous les champs');
+                return;
+            }
+            const userData = {
+                email: email,
+                mot_de_passe: password
+            }
+
+            const response = await axios.post('http://localhost:3001/api/utilisateurs/connexion', userData);
+            console.log(response.data.message);
+
+            navigate('/home');
+        } catch (error) {
+            console.error('Erreur lors de la connexion');
+        }
     };
+
     return (
         <div className="container">
             <h1 className="display-4">Connexion</h1>

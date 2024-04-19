@@ -12,7 +12,7 @@ exports.utilisateurSchema = new mongoose_1.default.Schema({
     nom_du_club: String,
     mot_de_passe: String,
     role: Boolean,
-    budget: Number
+    budget: Number,
 });
 const Utilisateur = mongoose_1.default.model('Utilisateur', exports.utilisateurSchema);
 exports.default = Utilisateur;

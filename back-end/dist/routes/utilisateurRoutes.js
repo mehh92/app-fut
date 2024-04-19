@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const Utilisateur_1 = __importDefault(require("../models/Utilisateur"));
+const bcrypt_1 = __importDefault(require("bcrypt"));
 const router = (0, express_1.Router)();
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -35,16 +36,6 @@ router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(500).json({ message: error.message });
     }
 }));
-// router.post('/', async (req: Request, res: Response) => {
-//   try {
-//     const utilisateur: IUtilisateur = req.body;
-//     const nouvelUtilisateur = new Utilisateur(utilisateur);
-//     await nouvelUtilisateur.save();
-//     res.status(201).json(nouvelUtilisateur);
-//   } catch (error: any) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
 router.post('/inscription', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const utilisateur = req.body;
@@ -54,9 +45,27 @@ router.post('/inscription', (req, res) => __awaiter(void 0, void 0, void 0, func
         }
         else {
             const nouvelUtilisateur = new Utilisateur_1.default(utilisateur);
+            nouvelUtilisateur.mot_de_passe = bcrypt_1.default.hashSync(nouvelUtilisateur.mot_de_passe, 10);
             yield nouvelUtilisateur.save();
             res.status(201).json(nouvelUtilisateur);
         }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}));
+router.post('/connexion', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { email, mot_de_passe } = req.body;
+        const utilisateur = yield Utilisateur_1.default.findOne({ email });
+        if (!utilisateur) {
+            return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
+        }
+        const motDePasseValide = (mot_de_passe === utilisateur.mot_de_passe);
+        if (!motDePasseValide) {
+            return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
+        }
+        res.status(200).json({ message: "Connexion réussie." });
     }
     catch (error) {
         res.status(500).json({ message: error.message });

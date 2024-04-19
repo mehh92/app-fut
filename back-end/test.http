@@ -12,14 +12,24 @@ POST http://localhost:3001/api/utilisateurs/inscription
 content-type: application/json
 
 {
-    "nom": "Mehdi",
-    "prenom": "prenomTest",
-    "email": "emailTu@gmail.com",
-    "nom_du_club": "nomClubTest",
-    "mot_de_passe": "motDePasseTest",
-    "role": false,
-    "budget": 1000
+  "nom": "Mehdi",
+  "prenom": "prenomTest",
+  "email": "emailTu@gmail.com",
+  "nom_du_club": "nomClubTest",
+  "mot_de_passe": "motDePasseTest",
+  "role": false,
+  "budget": 1000
 }
+
+###
+POST http://localhost:3001/api/utilisateurs/connexion
+content-type: application/json
+
+{
+  "email": "emailTu@gmail.com",
+  "mot_de_passe": "motDePasseTest"
+}
+
 
 ###
 

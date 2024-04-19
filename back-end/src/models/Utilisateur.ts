@@ -8,7 +8,7 @@ export interface IUtilisateur {
     nom_du_club : string,
     mot_de_passe : string,
     role: boolean,
-    budget: number
+    budget: number,
 }
 
 
@@ -19,7 +19,7 @@ export const utilisateurSchema = new mongoose.Schema({
     nom_du_club : String,
     mot_de_passe : String,
     role: Boolean,
-    budget: Number
+    budget: Number,
 })
 
 

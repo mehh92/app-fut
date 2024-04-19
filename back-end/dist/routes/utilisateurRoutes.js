@@ -63,7 +63,7 @@ router.post('/connexion', (req, res) => __awaiter(void 0, void 0, void 0, functi
         if (!utilisateur) {
             return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
         }
-        const motDePasseValide = (mot_de_passe === utilisateur.mot_de_passe);
+        const motDePasseValide = bcrypt_1.default.compareSync(mot_de_passe, utilisateur.mot_de_passe);
         if (!motDePasseValide) {
             return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
         }

@@ -22,6 +22,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.post('/inscription', async (req: Request, res: Response) => {
   try {
     const utilisateur: IUtilisateur = req.body;
@@ -53,8 +54,7 @@ router.post('/connexion', async (req: Request, res: Response) => {
     if (!utilisateur) {
       return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
     }
-
-    const motDePasseValide = (mot_de_passe === utilisateur.mot_de_passe);
+    const motDePasseValide = bcrypt.compareSync(mot_de_passe, utilisateur.mot_de_passe);
     if (!motDePasseValide) {
       return res.status(400).json({ message: "L'email ou le mot de passe est incorrect." });
     }
